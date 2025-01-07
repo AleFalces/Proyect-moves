@@ -1,0 +1,29 @@
+.navBar { 
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #ab8b8b;
+
+}
+
+.cardContainer {
+    display: flex;
+  background-color: #4b8457;
+    align-items: center;
+    flex-direction: column
+
+};
+
+
+.card {
+    border: rgb(22, 191, 10)  solid;
+    display: flex;
+    background-color: rgb(27, 29, 168);
+    justify-content: center;
+    align-items: center;
+    border-radius: 1px;
+    box-shadow: 0 0 1px rgba(207, 82, 82, 0.1);
+    margin-top: 2px;
+}
