@@ -1,5 +1,3 @@
-
-
 console.log(tempData); 
 const cardContainer = document.getElementById('content')   
 
@@ -30,6 +28,7 @@ tempData.map(movie => {
     poster.src = movie.poster
     cardContainer.appendChild(poster)
 
+    // innerHTML option
   /*   card.classList.add('card')
     card.innerHTML = `
     <h2>${movie.title}</h2>
@@ -43,8 +42,8 @@ tempData.map(movie => {
 
 })
 
-
-const catchButton = document.getElementById( 'btn')
+// button unused mettods
+/* const catchButton = document.getElementById( 'btn')
 function clickbutton (){
     const catchContent = document.getElementById('content') 
     let title = document.createElement('article')
@@ -76,7 +75,7 @@ function clickbutton (){
 
 
 
- catchButton.addEventListener('click',  clickbutton)
+ catchButton.addEventListener('click',  clickbutton) */
  
 
 
