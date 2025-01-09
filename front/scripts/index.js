@@ -20,33 +20,36 @@ $.get("https://students-api.up.railway.app/movies", (data, status) => {
       let title = document.createElement('article')
       title.classList.add('card')
       title.innerText =movie.title
-      cardContainer.appendChild(title)
+
   
       let director = document.createElement('article')
       director.innerText = movie.director
-      cardContainer.appendChild(director)  
-  
+
       let duration = document.createElement('article')
       duration.innerText = movie.duration
-      cardContainer.appendChild(duration)  
-  
+      
       let genre = document.createElement('article')
       genre.innerText = movie.genre
-      cardContainer.appendChild(genre)  
-  
+      
       let rate = document.createElement('article')
       rate.innerText = movie.rate
-      cardContainer.appendChild(rate)  
-  
+
       let poster = document.createElement('img')
       poster.src = movie.poster
-      cardContainer.appendChild(poster) */
+
+       cardContainer.appendChild(title)
+       cardContainer.appendChild(director) 
+       cardContainer.appendChild(duration)
+       cardContainer.appendChild(genre)
+       cardContainer.appendChild(rate)
+       cardContainer.appendChild(poster) */
 })
 
 // button unused mettods
 /* const catchButton = document.getElementById( 'btn')
 
 function clickbutton (){};
+
 
  catchButton.addEventListener('click',  clickbutton) */
  
