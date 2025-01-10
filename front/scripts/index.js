@@ -2,12 +2,24 @@
 
 
 $.get("https://students-api.up.railway.app/movies", (data, status) => {
-  
+
   const cardContainer = document.getElementById('content')   
   data.map(movie => {
     let card = document.createElement('div')
     card.classList.add('card')
-    let title = document.createElement('article')
+    console.log(movie)
+    card.innerHTML = `
+    <h2 class="card-title">${movie.title}</h2>
+    <p class="card-text text-nowrap bd-highlight">${movie.director}</p>
+    <p class="card-text text-nowrap bd-highlight">${movie.duration}</p>
+    <p class="card-text text-nowrap bd-highlight">${movie.genre}</p>
+    <p class="card-text text-nowrap bd-highlight">${movie.rate}</p>
+    <img src="${movie.poster}" alt="${movie.title}"  class="card-img-top" >`
+    cardContainer.appendChild(card)});
+
+
+    //   Tag X tag option  
+    /* let title = document.createElement('article')
     title.classList.add('card')
     title.innerText =movie.title
     
@@ -26,22 +38,14 @@ $.get("https://students-api.up.railway.app/movies", (data, status) => {
     
     let poster = document.createElement('img')
     poster.src = movie.poster
-    
+
     card.appendChild(title)
     card.appendChild(director) 
     card.appendChild(duration)
     card.appendChild(genre)
     card.appendChild(rate)
-    card.appendChild(poster) 
- /*    card.innerHTML = `
-    <h2>${movie.title}</h2>
-    <p>${movie.director}</p>
-    <p>${movie.duration}</p>
-    <p>${movie.genre}</p>
-    <p>${movie.rate}</p>
-    <img src="${movie.poster}" alt="${movie.title}">` */
-    cardContainer.appendChild(card) });
-    //   Tag X tag option  
+    card.appendChild(poster)  */
+    
   })
   
 // button unused mettods

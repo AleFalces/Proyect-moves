@@ -9,10 +9,10 @@
     
 }
 
-.cardContainer {
+* #content {
     background-color: rgb(237, 245, 248);
     border: rgb(46, 65, 193)  solid 1px;
-    display: grid;
+    display: flex;
     text-overflow: ellipsis;
     justify-content: center;
     grid-template-columns: repeat(
@@ -29,9 +29,10 @@
 
 
 .card {
-   width: 16010px;
-   height: 160px;
-   border: 5px solid red;
+   margin: auto;
+   margin-left: 10%;
+   margin-right: 10%;
+   border: 5px solid rgb(92, 154, 26);
    align-items: center;
    box-sizing: border-box;
    
@@ -39,4 +40,4 @@
 
 .artricle {
     font-size: 40px;
-}
+} 
