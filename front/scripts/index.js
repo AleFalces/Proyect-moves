@@ -1,4 +1,4 @@
-/* console.log(tempData);  */
+
 
 
 $.get("https://students-api.up.railway.app/movies", (data, status) => {
@@ -14,7 +14,7 @@ $.get("https://students-api.up.railway.app/movies", (data, status) => {
     <p class="card-text text-nowrap bd-highlight">${movie.duration}</p>
     <p class="card-text text-nowrap bd-highlight">${movie.genre}</p>
     <p class="card-text text-nowrap bd-highlight">${movie.rate}</p>
-    <img src="${movie.poster}" alt="${movie.title}"  class="card-img-top" >`
+    <img src="${movie.poster}" alt="${movie.title}"  class="card-img-bottom" >`
     cardContainer.appendChild(card)});
 
 

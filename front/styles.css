@@ -14,7 +14,6 @@
     border: rgb(46, 65, 193)  solid 1px;
     display: flex;
     text-overflow: ellipsis;
-    justify-content: center;
     grid-template-columns: repeat(
         auto-fit
         minmax(
@@ -28,7 +27,7 @@
 };
 
 
-.card {
+/* .card {
    margin: auto;
    margin-left: 10%;
    margin-right: 10%;
@@ -36,8 +35,13 @@
    align-items: center;
    box-sizing: border-box;
    
-}
+} */
 
 .artricle {
     font-size: 40px;
 } 
+
+.card-img-bottom {
+  height: 350px;
+  width: 552px;
+}
