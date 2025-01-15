@@ -12,7 +12,7 @@ const renderCards = (data) =>{
       <img src="${movie.poster}" alt="${movie.title}"  class="img" >`
       cardContainer.appendChild(card)});
     }
-
+    
     module.exports = renderCards;
     
     //   Tag X tag option  
