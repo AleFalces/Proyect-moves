@@ -9,39 +9,44 @@
     
 }
 
-* #content {
+#container {
+
     background-color: rgb(237, 245, 248);
     border: rgb(46, 65, 193)  solid 1px;
     display: flex;
+    flex-direction: row;
     text-overflow: ellipsis;
-    grid-template-columns: repeat(
-        auto-fit
-        minmax(
-            150px,
-            1fr
-            )
-            );
-    
-            overflow: auto;
+    justify-content: space-around;
+    flex-wrap: wrap;
 
 };
 
 
-/* .card {
-   margin: auto;
-   margin-left: 10%;
-   margin-right: 10%;
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    width: 300px;
+   
+ 
    border: 5px solid rgb(92, 154, 26);
    align-items: center;
    box-sizing: border-box;
+   justify-content:center ;
    
-} */
+} 
 
 .artricle {
     font-size: 40px;
 } 
 
-.card-img-bottom {
-  height: 350px;
-  width: 552px;
+.img {
+  height: 200px;
+  width: 200px;
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+    }
 }
