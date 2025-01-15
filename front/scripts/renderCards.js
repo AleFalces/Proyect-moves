@@ -12,6 +12,8 @@ const renderCards = (data) =>{
       <img src="${movie.poster}" alt="${movie.title}"  class="img" >`
       cardContainer.appendChild(card)});
     }
+
+    module.exports = renderCards;
     
     //   Tag X tag option  
     /* const cardContainer = document.getElementById('container') 
@@ -42,5 +44,3 @@ const renderCards = (data) =>{
     card.appendChild(rate)
     card.appendChild(poster) 
       */
-
-    
