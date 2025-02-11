@@ -1,11 +1,12 @@
 
 .navBar { 
+    
     display: flex;
     justify-content: space-around;
     flex-wrap: nowrap;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: #ab8b8b;
+    background-color: #e1cd938e;
     
 }
 

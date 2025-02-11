@@ -2,7 +2,7 @@ const renderCards = (data) =>{
     const cardContainer = document.getElementById('container')   
     data.map(movie => {
       let theCard = document.createElement('div')
-      card.innerHTML = `
+      theCard.innerHTML = `
       <h2 class="card-title">${movie.title}</h2>
       <p class="card-text">${movie.director}</p>
       <p class="card-text">${movie.duration}</p>
