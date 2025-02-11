@@ -9,45 +9,42 @@
     background-color: #e1cd938e;
     
 }
-
-#container {
-    margin: 20px;
-    background-color: rgb(237, 245, 248);
-    border: rgb(46, 65, 193)  solid 1px;
-    display: grid;
-    gap: 10px;
-    grid-template-columns: 1fr 1fr 1fr; 
-    flex-direction: row;
-    text-overflow: ellipsis;
-    justify-content: space-around;
-    flex-wrap: wrap;
-
-};
-
-
 .theCard {
-  display: flex;
+    display: flex;
     flex-direction: column;
-    height: 300px;
-    width: 300px;
-   border: 5px solid rgb(96, 163, 24);
-   align-items: center;
-   box-sizing: border-box;
-   justify-content:center ;
-   
-} 
-
-.artricle {
-    font-size: 40px;
-} 
-
+    height: 100%;
+    width: 100%;
+    border: 5px solid rgb(96, 163, 24);
+    align-items: center;
+    box-sizing: border-box;
+    justify-content:center ;
+}
+/* div {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    border: 5px solid rgb(96, 163, 24);
+    align-items: center;
+    box-sizing: border-box;
+    justify-content:center ;
+    
+    }  */
+    #container {
+        margin: 20px;
+        background-color: rgb(237, 245, 248);
+        border: rgb(46, 65, 193)  solid 1px;
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 1fr 1fr 1fr; 
+        text-overflow: ellipsis;
+        justify-content: space-around;
+    
+    
+    };
+¡
 .img {
   height: 200px;
-  width: 200px;
-}
-
-@media (max-width: 768px) {
-    .card {
-        width: 100%;
-    }
+  width: 3000px;
+  
 }
