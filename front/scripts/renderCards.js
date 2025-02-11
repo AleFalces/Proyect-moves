@@ -1,16 +1,16 @@
 const renderCards = (data) =>{ 
     const cardContainer = document.getElementById('container')   
     data.map(movie => {
-      let card = document.createElement('div')
-      card.classList.add('card')
+      let theCard = document.createElement('div')
       card.innerHTML = `
       <h2 class="card-title">${movie.title}</h2>
-      <p class="card-text text-nowrap bd-highlight">${movie.director}</p>
-      <p class="card-text text-nowrap bd-highlight">${movie.duration}</p>
-      <p class="card-text text-nowrap bd-highlight">${movie.genre}</p>
-      <p class="card-text text-nowrap bd-highlight">${movie.rate}</p>
+      <p class="card-text">${movie.director}</p>
+      <p class="card-text">${movie.duration}</p>
+      <p class="card-text">${movie.genre}</p>
+      <p class="card-text">${movie.rate}</p>
       <img src="${movie.poster}" alt="${movie.title}"  class="img" >`
-      cardContainer.appendChild(card)});
+      theCard.classList.add('theCard')
+      cardContainer.appendChild(theCard)});
     }
     
     module.exports = renderCards;

@@ -10,10 +10,12 @@
 }
 
 #container {
-
+    margin: 20px;
     background-color: rgb(237, 245, 248);
     border: rgb(46, 65, 193)  solid 1px;
-    display: flex;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr; 
     flex-direction: row;
     text-overflow: ellipsis;
     justify-content: space-around;
@@ -22,14 +24,12 @@
 };
 
 
-.card {
-    display: flex;
+.theCard {
+  display: flex;
     flex-direction: column;
     height: 300px;
     width: 300px;
-   
- 
-   border: 5px solid rgb(92, 154, 26);
+   border: 5px solid rgb(96, 163, 24);
    align-items: center;
    box-sizing: border-box;
    justify-content:center ;
