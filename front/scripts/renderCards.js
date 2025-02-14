@@ -1,4 +1,4 @@
-const renderCards = (data) =>{ 
+const renderCards = (data) =>{
     const cardContainer = document.getElementById('container')   
     data.map(movie => {
       let theCard = document.createElement('div')
