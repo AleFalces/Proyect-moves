@@ -1,7 +1,18 @@
-let moviesController = (req, res) => {
-    res.status(200).send('Movies Controller is OK')
-    
+const moviesServices = require('../services/moviesServices');
 
-}
+module.exports = { 
 
-module.exports = { moviesController }
+    moviesController : async (req, res) => {
+       let movies = await moviesServices.getMovies()
+       if(!movies.length){
+           res.status(404).send('No movies found')
+       }
+       else {
+        res.status(200).json(movies)
+       }
+        
+    },
+
+//      createMovie : async (req, res) => {
+//         re
+};
