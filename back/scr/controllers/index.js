@@ -1,5 +1,5 @@
 let moviesController = (req, res) => {
-    res.status(200).send('vaaamo culiaa')
+    res.status(200).send('Movies Controller is OK')
     
 
 }
