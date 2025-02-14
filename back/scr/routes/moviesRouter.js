@@ -1,9 +1,9 @@
 const {Router} = require('express');
-const { moviesController } = require('../controllers');
+const { moviesController, createMoviecontroller} = require('../controllers');
 
 let moviesRouter = Router();
 
 moviesRouter.get('/', moviesController)
-
+moviesRouter.post('/', createMoviecontroller )
 
 module.exports = moviesRouter;

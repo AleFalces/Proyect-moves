@@ -13,6 +13,15 @@ module.exports = {
         
     },
 
-//      createMovie : async (req, res) => {
-//         re
+  createMoviecontroller : async (req, res) => {
+    let newMovie = req.body;
+    let movies = await moviesServices.getMovies();
+    let movieExists = movies.find(movie => movie.title === newMovie.title);
+    if(movieExists){
+        res.status(400).send('Movie already exists')
+    }
+    else {
+        moviesServices.createMovie(newMovie);
+        res.status(201).json(newMovie)
+    }}
 };
