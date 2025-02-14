@@ -4,7 +4,7 @@ const axios = require('axios')
 
 
 let fetchData = async () => {
-  let response = await axios.get('https://students-api.up.railway.app/movies')
+  let response = await axios.get('http://localhost:3000/movies')
   
   renderCards(response.data)
 
