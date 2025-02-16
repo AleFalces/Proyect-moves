@@ -1,7 +1,13 @@
 const app = require('./scr/server');
+const dbConnect = require('../back/scr/config/dnConect');
 
-app.listen(3000, () => {
-    console.log('Server running on port 3000');
-});
+dbConnect().then((res)=
+    res => {
+        app.listen(3000, () => {
+            console.log('Server running on port 3000');
+        });
+        
+    }
+)
 
 
