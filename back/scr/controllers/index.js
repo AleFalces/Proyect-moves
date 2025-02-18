@@ -2,15 +2,14 @@ const moviesServices = require('../services/moviesServices');
 
 module.exports = { 
 
-    moviesController : async (req, res) => {
-       let movies = await moviesServices.getMovies()
-       if(!movies.length){
-           res.status(404).send('No movies found')
-       }
-       else {
-        res.status(200).json(movies)
-       }
-        
+    getAllmovies : async (req, res) => {
+       
+       try{
+        let allMovies = await moviesServices.getMovies()
+        res.status(200).json(allMovies)
+    } catch(err){
+        res.status(404).send('No movies found')
+    }
     },
 
   createMoviecontroller : async (req, res) => {
@@ -22,6 +21,18 @@ module.exports = {
     }
     else {
         moviesServices.createMovie(newMovie);
-        res.status(201).json(newMovie)
-    }}
+        res.status(201).json(newMovie);
+    }},
+
+    getMovieByid: async (req, res) => {
+        let id = req.params.id;
+        try{
+            const movieId = await moviesServices.getMovieByid(id);
+                res.status(200).json(movieId);
+        } catch(err){
+            res.status(400).send("this movie does not exist");
+        }
+
+    }
+
 };

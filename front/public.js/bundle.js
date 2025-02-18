@@ -15,7 +15,7 @@
   \**************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("\r\nconst renderCards = __webpack_require__(/*! ./renderCards */ \"./scripts/renderCards.js\")\r\nconst axios = __webpack_require__(/*! axios */ \"./node_modules/axios/dist/browser/axios.cjs\")\r\n\r\n\r\nlet fetchData = async () => {\r\n  let response = await axios.get('http://localhost:3000/movies')\r\n  \r\n  renderCards(response.data)\r\n\r\n}\r\nfetchData()\n\n//# sourceURL=webpack://front/./scripts/index.js?");
+eval("\r\nconst renderCards = __webpack_require__(/*! ./renderCards */ \"./scripts/renderCards.js\")\r\nconst axios = __webpack_require__(/*! axios */ \"./node_modules/axios/dist/browser/axios.cjs\")\r\n\r\n\r\nlet fetchData = async () => {\r\n  let response = await axios.get('http://localhost:3000/movies')\r\n  console.log(response.data);\r\n  \r\n  \r\n  renderCards(response.data)\r\n\r\n}\r\nfetchData()\n\n//# sourceURL=webpack://front/./scripts/index.js?");
 
 /***/ }),
 
