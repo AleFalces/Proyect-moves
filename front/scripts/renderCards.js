@@ -1,22 +1,23 @@
-const renderCards = (data) =>{
-    const cardContainer = document.getElementById('container')   
-    data.map(movie => {
-      let theCard = document.createElement('div')
-      theCard.innerHTML = `
+const renderCards = (data) => {
+  const cardContainer = document.getElementById("container");
+  data.map((movie) => {
+    let theCard = document.createElement("div");
+    theCard.innerHTML = `
       <h2 class="card-title">${movie.title}</h2>
       <p class="card-text">${movie.director}</p>
       <p class="card-text">${movie.duration}</p>
       <p class="card-text">${movie.genre}</p>
       <p class="card-text">${movie.rate}</p>
-      <img src="${movie.poster}" alt="${movie.title}"  class="img" >`
-      theCard.classList.add('theCard')
-      cardContainer.appendChild(theCard)});
-    }
-    
-    module.exports = renderCards;
-    
-    //   Tag X tag option  
-    /* const cardContainer = document.getElementById('container') 
+      <img src="${movie.poster}" alt="${movie.title}"  class="img" >`;
+    theCard.classList.add("theCard");
+    cardContainer.appendChild(theCard);
+  });
+};
+
+module.exports = renderCards;
+
+//   Tag X tag option
+/* const cardContainer = document.getElementById('container') 
     title.classList.add('card')
     title.innerText =movie.title
     

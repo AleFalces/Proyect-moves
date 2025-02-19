@@ -1,14 +1,9 @@
-
-const renderCards = require('./renderCards')
-const axios = require('axios')
-
+const renderCards = require("./renderCards");
+const axios = require("axios");
 
 let fetchData = async () => {
-  let response = await axios.get('http://localhost:3000/movies')
- 
-  
-  
-  renderCards(response.data)
+  let response = await axios.get("http://localhost:3000/movies");
 
-}
-fetchData()
+  renderCards(response.data);
+};
+fetchData();
