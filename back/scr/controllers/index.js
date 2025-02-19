@@ -21,23 +21,17 @@ let createMoviecontroller = async (req, res) => {
 let getMovieByid = async (req, res) => {
   let id = req.params.id;
   const movieId = await moviesServices.getMovieByid(id);
-  if (movieId === null) {
-    res.status(404).send("Movie not found");
-  } else {
-    res.status(200).json(movieId);
-  }
+  res.status(200).json(movieId);
 };
+
 let movieByName = async (req, res) => {
   let movieName = req.body.title;
-  if (!movieName || movieName === null) {
-    res.status(400).send("Please provide a movie name");
+
+  let ByName = await moviesServices.getMovieByName(movieName);
+  if (ByName === null) {
+    res.status(404).send("Movie not found");
   } else {
-    let ByName = await moviesServices.getMovieByName(movieName);
-    if (ByName === null) {
-      res.status(404).send("Movie not found");
-    } else {
-      res.status(200).json(ByName);
-    }
+    res.status(200).json(ByName);
   }
 };
 

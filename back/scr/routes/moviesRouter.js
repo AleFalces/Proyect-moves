@@ -5,12 +5,14 @@ const {
   getMovieByid,
   movieByName,
 } = require("../controllers");
+const validateId = require("../Middlewares/validateId");
+const validateTitle = require("../Middlewares/validateTitle");
 
 let moviesRouter = Router();
 
 moviesRouter.get("/", getAllmovies);
-moviesRouter.get("/byName", movieByName);
+moviesRouter.get("/bytitle", validateTitle, movieByName);
 moviesRouter.post("/", createMoviecontroller);
-moviesRouter.get("/:id", getMovieByid);
+moviesRouter.get("/:id", validateId, getMovieByid);
 
 module.exports = moviesRouter;

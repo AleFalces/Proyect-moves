@@ -13,7 +13,7 @@ app.use(router);
 app.use((err, req, res, next) => {
   res
     .status(err.statusCode || 500)
-    .send(err.message || "Internal server error");
+    .json(err.message || "Internal server error");
 });
 
 module.exports = app;
