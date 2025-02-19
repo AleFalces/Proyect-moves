@@ -26,12 +26,12 @@ let movieByName = async (req, res, next) => {
     res.status(200).json(ByName);
   }
 };
-let createMoviecontroller = async (req, res) => {
-  let newMovie = req.body.title;
+let createMoviecontroller = async (req, res, next) => {
+  let newMovie = req.body;
   let movies = await moviesServices.getMovies();
-  let movieExists = movies.find((movie) => movie.title === newMovie);
+  let movieExists = movies.find((movie) => movie.title === newMovie.title);
   if (movieExists) {
-    res.status(400).send("Movie already exists");
+    next({ message: "Movie already exists", statusCode: 400 });
   } else {
     moviesServices.createMovie(newMovie);
     res.status(201).json(newMovie);
