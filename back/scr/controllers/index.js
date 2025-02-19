@@ -6,6 +6,26 @@ let getAllmovies = async (req, res) => {
   res.status(200).json(allMovies);
 };
 
+let getMovieByid = async (req, res, next) => {
+  let id = req.params.id;
+  const movieId = await moviesServices.getMovieByid(id);
+  if (movieId === null) {
+    next({ message: "Movie not Found", statusCode: 400 });
+  } else {
+    res.status(200).json(movieId);
+  }
+};
+
+let movieByName = async (req, res, next) => {
+  let movieName = req.body.title;
+
+  let ByName = await moviesServices.getMovieByName(movieName);
+  if (ByName === null) {
+    next({ message: "Movie not Found", statusCode: 400 });
+  } else {
+    res.status(200).json(ByName);
+  }
+};
 let createMoviecontroller = async (req, res) => {
   let newMovie = req.body.title;
   let movies = await moviesServices.getMovies();
@@ -15,23 +35,6 @@ let createMoviecontroller = async (req, res) => {
   } else {
     moviesServices.createMovie(newMovie);
     res.status(201).json(newMovie);
-  }
-};
-
-let getMovieByid = async (req, res) => {
-  let id = req.params.id;
-  const movieId = await moviesServices.getMovieByid(id);
-  res.status(200).json(movieId);
-};
-
-let movieByName = async (req, res) => {
-  let movieName = req.body.title;
-
-  let ByName = await moviesServices.getMovieByName(movieName);
-  if (ByName === null) {
-    res.status(404).send("Movie not found");
-  } else {
-    res.status(200).json(ByName);
   }
 };
 

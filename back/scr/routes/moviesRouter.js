@@ -12,7 +12,7 @@ let moviesRouter = Router();
 
 moviesRouter.get("/", getAllmovies);
 moviesRouter.get("/bytitle", validateTitle, movieByName);
-moviesRouter.post("/", createMoviecontroller);
+moviesRouter.post("/newmovie", createMoviecontroller);
 moviesRouter.get("/:id", validateId, getMovieByid);
 
 module.exports = moviesRouter;
