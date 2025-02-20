@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario de Películas</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .navbar {
+        background-color: #333;
+        padding: 10px;
+        text-align: center;
+      }
+      .navbar a {
+        color: white;
+        text-decoration: none;
+        margin: 10px;
+      }
+      form {
+        max-width: 400px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+      }
+      label,
+      input {
+        margin-bottom: 10px;
+      }
+      .genre-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .error {
+        color: red;
+        font-size: 12px;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="/">Inicio</a>
+
+      <button id="dark-mode-toggle" class="dark-mode-toggle">
+        Modo Oscuro
+      </button>
+    </div>
+
+    <h2>Agregar Nueva Película</h2>
+    <form id="movieForm">
+      <label
+        >Título: <input type="text" id="title" required /><span
+          class="error"
+          id="error-title"
+          >Este campo es obligatorio</span
+        ></label
+      >
+      <label
+        >Calificación:
+        <input
+          type="number"
+          id="rate"
+          step="0.1"
+          min="0"
+          max="10"
+          required
+        /><span class="error" id="error-rate"
+          >Debe ser un número entre 0 y 10</span
+        ></label
+      >
+      <label
+        >Director: <input type="text" id="director" required /><span
+          class="error"
+          id="error-director"
+          >Este campo es obligatorio</span
+        ></label
+      >
+      <label>Géneros:</label>
+      <div class="genre-group">
+        <label
+          ><input type="checkbox" value="Acción" class="genre" /> Acción</label
+        >
+        <label
+          ><input type="checkbox" value="Aventura" class="genre" />
+          Aventura</label
+        >
+        <label
+          ><input type="checkbox" value="Comedia" class="genre" />
+          Comedia</label
+        >
+        <label
+          ><input type="checkbox" value="Drama" class="genre" /> Drama</label
+        >
+        <label
+          ><input type="checkbox" value="Fantasía" class="genre" />
+          Fantasía</label
+        >
+        <label
+          ><input type="checkbox" value="Ciencia Ficción" class="genre" />
+          Ciencia Ficción</label
+        >
+        <label
+          ><input type="checkbox" value="Terror" class="genre" /> Terror</label
+        >
+        <label
+          ><input type="checkbox" value="Suspenso" class="genre" />
+          Suspenso</label
+        >
+        <label
+          ><input type="checkbox" value="Romance" class="genre" />
+          Romance</label
+        >
+        <label
+          ><input type="checkbox" value="Animación" class="genre" />
+          Animación</label
+        >
+      </div>
+      <span class="error" id="error-genre"
+        >Debe seleccionar al menos un género</span
+      >
+      <label
+        >Poster URL: <input type="url" id="poster" required /><span
+          class="error"
+          id="error-poster"
+          >Debe ser una URL válida</span
+        ></label
+      >
+      <label
+        >Duración: <input type="text" id="duration" required /><span
+          class="error"
+          id="error-duration"
+          >Este campo es obligatorio</span
+        ></label
+      >
+      <label
+        >Año: <input type="number" id="year" required /><span
+          class="error"
+          id="error-year"
+          >Debe ser un año válido</span
+        ></label
+      >
+      <button type="submit">Enviar</button>
+    </form>
+    <script src="./scripts/dark-mode.js"></script>
+    <script>
+      document
+        .getElementById("movieForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          let isValid = true;
+          const selectedGenres = Array.from(
+            document.querySelectorAll(".genre:checked")
+          ).map((input) => input.value);
+
+          function showError(id, condition) {
+            const errorElement = document.getElementById(id);
+            if (condition) {
+              errorElement.style.display = "block";
+              isValid = false;
+            } else {
+              errorElement.style.display = "none";
+            }
+          }
+
+          showError(
+            "error-title",
+            document.getElementById("title").value.trim() === ""
+          );
+          showError(
+            "error-rate",
+            isNaN(parseFloat(document.getElementById("rate").value)) ||
+              document.getElementById("rate").value < 0 ||
+              document.getElementById("rate").value > 10
+          );
+          showError(
+            "error-director",
+            document.getElementById("director").value.trim() === ""
+          );
+          showError("error-genre", selectedGenres.length === 0);
+          showError(
+            "error-poster",
+            document.getElementById("poster").value.trim() === "" ||
+              !document.getElementById("poster").value.startsWith("http")
+          );
+          showError(
+            "error-duration",
+            document.getElementById("duration").value.trim() === ""
+          );
+          showError(
+            "error-year",
+            isNaN(parseInt(document.getElementById("year").value)) ||
+              document.getElementById("year").value < 1800 ||
+              document.getElementById("year").value > new Date().getFullYear()
+          );
+
+          if (!isValid) return;
+
+          const movie = {
+            title: document.getElementById("title").value,
+            rate: parseFloat(document.getElementById("rate").value),
+            director: document.getElementById("director").value,
+            genre: selectedGenres,
+            poster: document.getElementById("poster").value,
+            duration: document.getElementById("duration").value,
+            year: parseInt(document.getElementById("year").value),
+          };
+
+          axios
+            .post("http://localhost:3000/movies/newmovie", movie)
+            .then((response) =>
+              alert(
+                "Película agregada con éxito: " + JSON.stringify(response.data)
+              )
+            )
+            .catch((error) => alert("Error al enviar la película: " + error));
+        });
+    </script>
+  </body>
+</html>
