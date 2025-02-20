@@ -5,50 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Formulario de Películas</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-      }
-      .navbar {
-        background-color: #333;
-        padding: 10px;
-        text-align: center;
-      }
-      .navbar a {
-        color: white;
-        text-decoration: none;
-        margin: 10px;
-      }
-      form {
-        max-width: 400px;
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-      }
-      label,
-      input {
-        margin-bottom: 10px;
-      }
-      .genre-group {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-      .error {
-        color: red;
-        font-size: 12px;
-        display: none;
-      }
-    </style>
+    <style></style>
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div class="navbar">
-      <a href="/">Inicio</a>
+    <nav>
+    <div class="navBar">
+      <a class="dark-mode-toggle" href="/">Inicio</a>
       <button id="dark-mode-toggle" class="dark-mode-toggle">
         Modo Oscuro
       </button>
-    </div>
-
+    </nav>
+  <div classname ="containerForm">
     <h2>Agregar Nueva Película</h2>
     <form id="movieForm">
       <label
@@ -144,6 +112,7 @@
       >
       <button type="submit">Enviar</button>
     </form>
+  </div>
     <script src="./scripts/dark-mode.js"></script>
     <script>
       document
@@ -193,7 +162,7 @@
           showError(
             "error-year",
             isNaN(parseInt(document.getElementById("year").value)) ||
-              document.getElementById("year").value < 1800 ||
+              document.getElementById("year").value < 1888 ||
               document.getElementById("year").value > new Date().getFullYear()
           );
 

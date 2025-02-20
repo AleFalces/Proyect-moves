@@ -2,7 +2,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #a3e06d;
+  background-color: #468311;
   text-align: center;
   transition: background-color 0.3s, color 0.3s;
 }
@@ -21,12 +21,12 @@ body.dark-mode h1 {
 }
 
 /* Navbar */
-nav {
+.navBar {
   background-color: #333;
   padding: 10px;
 }
 
-body.dark-mode nav {
+body.dark-mode navBar {
   background-color: #222;
 }
 
@@ -149,4 +149,31 @@ body.dark-mode .theCard p {
   .theCard {
     padding: 8px;
   }
+}
+
+.containerForm {
+  margin-top: 50px;
+}
+
+form {
+  font-size: x-large;
+
+  max-width: 400px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+label,
+input {
+  margin-bottom: 10px;
+}
+.genre-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.error {
+  color: red;
+  font-size: 12px;
+  display: none;
 }
