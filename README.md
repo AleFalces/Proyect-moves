@@ -43,8 +43,8 @@ Movies App es una aplicación full-stack desarrollada como proyecto personal de 
 
 
 4. Ejecutá el servidor de desarrollo:
-     .Front: npm run dev
-     .Back: npm start
+     -Front: npm run dev
+     -Back: npm start
 
 ## 📦 Futuras mejoras
 
