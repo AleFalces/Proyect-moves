@@ -41,12 +41,10 @@ Movies App es una aplicación full-stack desarrollada como proyecto personal de 
 3. Configurá las variables de entorno. Renombrá .env.example a .env y completá los valores correspondientes:
    Encontraras un archivo .env.exaple en la carpeta front y en la carpeta back respetcivamente.
 
-4. Inicializá la base de datos (asegurate de tener PostgreSQL corriendo):
-   npm run typeorm migration:run
 
-5. Ejecutá el servidor de desarrollo:
-   Front: npm run dev
-   Back: npm start
+4. Ejecutá el servidor de desarrollo:
+     .Front: npm run dev
+     .Back: npm start
 
 ## 📦 Futuras mejoras
 
